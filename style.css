@@ -1,0 +1,30 @@
+body {
+    /*Remove default padding*/
+    margin: 0;
+    text-align: center;
+}
+
+#list {
+    background: lightblue;
+    width: 576px;
+    height: 1080px;
+}
+
+#details {
+    background: lightcoral;
+    width: 1344px;
+    height: 1080px;
+
+    position: absolute;
+    left: 576px;
+    top: 0px;
+}
+
+.list-item {
+    padding: 20px;
+    
+}
+
+.video {
+    padding: 50px;
+}

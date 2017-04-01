@@ -1,0 +1,25 @@
+{
+  "name": "couch-gaming-app",
+  "version": "0.0.1",
+  "description": "A fullscreen electron app for selecting PC games with a focus on local multiplayer games",
+  "main": "main.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scycer/CouchGamingApp.git"
+  },
+  "keywords": [
+    "gaming",
+    "local-multiplayer",
+    "electron",
+    "react"
+  ],
+  "author": "Daniel hoek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scycer/CouchGamingApp/issues"
+  },
+  "homepage": "https://github.com/scycer/CouchGamingApp#readme"
+}
