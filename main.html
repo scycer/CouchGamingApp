@@ -5,20 +5,70 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
     </head>
     <body>
     
-    <div id='list'>
-            <img class='list-item' src="example.png">
-            <img class='list-item' src="example.png">
+    <div id='listbg'>
+        <div id='list'>
+            <img id='list-item-1' src="example.png">
+            <img id='list-item-2' src="2.jpg">
+            <img id='list-item-active' src="example.png">
+            <img id='list-item-4' src="3.jpg">
+            <img id='list-item-5' src="example.png">
+        </div>
     </div>    
     
     <div id='details'>
-        <video id="video" 
+
+        <video  id="video"
         <!--autoplay-->
         >
             <source src="http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057" type="video/webm">
         </video>
+
+        <div id='player'>
+            <div class='gameDetail'>2 Players</div>
+        </div>        
+        <div id='genre'>
+            <div class='gameDetail'>RPG</div>
+        </div>
+        <div id='team'>
+            <div class='gameDetail'>Co-op</div>
+        </div>
+
+
+    </div>
+
+    <div id="bar">
+        <div id='a-btn'>
+            <div class='round-btn a'>
+                <div class='round-btn-text'>A</div>
+            </div>
+            Play Game
+        </div>
+
+        <div id='b-btn'>
+            <div class='round-btn b'>
+                <div class='round-btn-text'>B</div>
+            </div>
+            BACK!
+        </div>
+
+        <div class='round-btn x'>
+            <div class='round-btn-text'>X</div>
+        </div>
+
+        <div class='round-btn y'>
+            <div class='round-btn-text'>Y</div>
+            <div> Filter</div>
+        </div>
+
     </div>
 
     </body>
