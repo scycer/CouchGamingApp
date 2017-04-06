@@ -1,4 +1,8 @@
-import {abc} from './app/app'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './ui/app';
 
-const test = 'test'
-
+ReactDOM.render(
+  <App/>,
+  document.getElementById('app')
+);
