@@ -19,6 +19,10 @@ class App extends React.Component {
 
     const {games} = data
 
+    const changeGame = () => this.setState({activeGame: 1})
+
+    setTimeout(changeGame, 1000)
+
     return (
       <div>
         <List gameList={games} activeGame={this.state.activeGame}/>

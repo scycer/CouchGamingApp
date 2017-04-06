@@ -17,13 +17,6 @@ module.exports = {
     filename: 'index_bundle.js'
   },
   module: {
-    // rules: [
-    //       {
-    //         test: /\.css$/,
-    //         use: [ 'style-loader', 'css-loader' ]
-    //       }
-    //     ],
-
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
@@ -32,7 +25,14 @@ module.exports = {
   plugins: [HtmlWebpackPluginConfig],
 
    devServer: {
-    contentBase: path.join(__dirname, 'public'), 
+    //This is where the public assets are served from
+    contentBase: path.join(__dirname, 'public'),
+
+    // Shows errors in the browser window DOM
+    overlay: true,
+
+    // nothing is shown in CLI
+    quiet: true
   },
 }
 
