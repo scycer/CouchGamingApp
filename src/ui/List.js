@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled, { keyframes } from 'styled-components';
+import {ListItem} from './ListStyles'
 
 const List = ({gameList, activeGame}) => {
 
@@ -19,30 +19,14 @@ const List = ({gameList, activeGame}) => {
 
     // console.log(isValidgetGame(0))
 
-const rotate360 = keyframes`
-  from {
-    top: -200px;
-  }
-
-  to {
-    top: -113.5px;
-  }
-`;
-
-    const ListItem1 = styled.div`
-        position: absolute;
-        top: -113.5px;
-        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-        animation: ${rotate360} 500ms;
-    `;
 
     return  (<div id='listbg'>
                 <div id='list'>
-                    {getGame(0) && <ListItem1><img src={getGame(0).listImg}/></ListItem1>}
-                    {getGame(1) && <img id='list-item-2' src={getGame(1).listImg}/>}
-                    {getGame(2) && <img id='list-item-active' src={getGame(2).listImg}/>}
-                    {getGame(3) && <img id='list-item-4' src={getGame(3).listImg}/>}
-                    {getGame(4) && <img id='list-item-5' src={getGame(4).listImg}/>}
+                    {getGame(0) && <ListItem num={1}><img src={getGame(0).listImg}/></ListItem>}
+                    {getGame(1) && <ListItem num={2}><img src={getGame(1).listImg}/></ListItem>}
+                    {getGame(2) && <ListItem num={3}><img id='list-item-active' src={getGame(2).listImg}/></ListItem>}
+                    {getGame(3) && <ListItem num={4}><img src={getGame(3).listImg}/></ListItem>}
+                    {getGame(4) && <ListItem num={5}><img src={getGame(4).listImg}/></ListItem>}
                 </div>
             </div>)
 }
