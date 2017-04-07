@@ -49,11 +49,6 @@ body {
       
 }
 
-#list-item-2 {
-    position: absolute;
-
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
 
 #list-item-active {
     position: absolute;
@@ -79,17 +74,6 @@ body {
     0px 0px 22px 10px rgba(255, 0, 69, 0.6)}
 }
 
-#list-item-4 {
-    position: absolute;
-
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-
-#list-item-5 {
-    position: absolute;
-
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
 
 #video {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
