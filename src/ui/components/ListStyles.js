@@ -9,21 +9,9 @@ const topValues = [
     '978.5px',
     '1251.5px'
 ]
-
-
-const ListItemMoveDown = (itemNum) => keyframes`
+const ListItemMove = (itemNum, direction) => keyframes`
   from {
-    top: ${topValues[itemNum - 1]}
-  }
-
-  to {
-    top: ${topValues[itemNum]}
-  }
-`;
-
-const ListItemMoveUp = (itemNum) => keyframes`
-  from {
-    top: ${topValues[itemNum + 1]}
+    top: ${direction === 'Up' ? topValues[itemNum - 1] : topValues[itemNum + 1]}
   }
 
   to {
@@ -35,5 +23,5 @@ export const ListItem = styled.div`
     position: absolute;
     top: ${props => topValues[props.num]};
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    animation: ${props => ListItemMoveDown(props.num)} 300ms ease 0s 1;
+    animation: ${props => ListItemMove(props.num, props.direction)} 300ms ease 0s 1;
 `;

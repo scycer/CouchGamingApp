@@ -1,6 +1,11 @@
 import React from 'react';
+import Gamepad from './gamepad.js'
 
-import List from "./List"
+import List from "./components/List"
+import GameDetails from "./components/GameDetails"
+import ActionBar from "./components/ActionBar"
+
+import GamePadWrapper from "./GamePadWrapper"
 
 import data from "../data/exampleData"
 
@@ -11,92 +16,35 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeGame: 2
+      activeGame: 2,
+      listDirection: 'Down'
     }
   }
 
+  handleGamepadInput(buttonPressed) {
+    buttonPressed === 'Up' && this.setState((prevState) => ({activeGame: prevState.activeGame - 1, listDirection: 'Up'}))
+    buttonPressed === 'Down' && this.setState((prevState) => ({activeGame: prevState.activeGame + 1, listDirection: 'Down'}))
+  }
+
   render() {
-
     const {games} = data
-
-    const changeGame = () => this.setState({activeGame: 1})
 
     return (
       <div>
-        <List gameList={games} activeGame={this.state.activeGame}/>
-
-        {/*
-        ****************************
-        *  Game Details
-        ****************************
-        */}
-
-        <div id='details'>
-          <video id="video" >
-            <source src="http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057" type="video/webm"/>
-          </video>
-
-          <div id='game-types'>
-            <div className='gameDetail'>2 Players</div>
-            <div className='gameDetail'>RPG</div>
-            <div className='gameDetail'>Co-op</div>
-          </div>
-
-          <div id='game-descript'>
-              Enter the Gungeon is a bullet hell dungeon crawler 
-              following a band of misfits seeking to shoot, loot, 
-              dodge roll and table-flip their way to personal absolution 
-              by reaching the legendary Gungeon’s ultimate treasure: 
-              the gun that can kill the past.
-          </div>
-
-        </div>
+        <GamePadWrapper callback={(x)=>this.handleGamepadInput(x)}/>
+        <List gameList={games} activeGame={this.state.activeGame} listDirection={this.state.listDirection}/>
+        <GameDetails/>
+        <ActionBar/>
 
         {/*
         ****************************
         *  Background Image
         ****************************
         */}
-
         <div id='bg-img'>
           <img src="bg.jpg" height="1080" width="1920"/>
         </div>
 
-        {/*
-        ****************************
-        *  Action Bar
-        ****************************
-        */}
-        <div id="bar">
-          <div className='btn-sec'>
-            <div className='round-btn a'>
-              <div className='round-btn-text'>A</div>
-            </div>
-            <div className='btn-label'>Play</div>
-          </div>
-
-          <div className='btn-sec'>
-            <div className='round-btn b'>
-              <div className='round-btn-text'>B</div>
-            </div>
-            <div className='btn-label'>???????</div>
-          </div>
-
-          <div className='btn-sec'>
-            <div className='round-btn x'>
-              <div className='round-btn-text'>X</div>
-            </div>
-            <div className='btn-label'>???????</div>
-          </div>
-
-          <div className='btn-sec'>
-              <div className='round-btn y'>
-                  <div className='round-btn-text'>Y</div>
-              </div>
-              <div className='btn-label'>Filter</div>
-              
-          </div>
-        </div>
       </div>
     )
   }

@@ -2,11 +2,9 @@ import React from 'react';
 
 import {ListItem} from './ListStyles'
 
-const List = ({gameList, activeGame}) => {
+const List = ({gameList, activeGame, listDirection}) => {
 
     const orderedGameList = gameList.map((game, idx) => ({...game, order: idx}))
-
-    console.log(orderedGameList, activeGame)
 
     const filteredGames = 
         //Get 2 games either side of the active game
@@ -22,11 +20,11 @@ const List = ({gameList, activeGame}) => {
 
     return  (<div id='listbg'>
                 <div id='list'>
-                    {getGame(0) && <ListItem num={1}><img src={getGame(0).listImg}/></ListItem>}
-                    {getGame(1) && <ListItem num={2}><img src={getGame(1).listImg}/></ListItem>}
-                    {getGame(2) && <ListItem num={3}><img id='list-item-active' src={getGame(2).listImg}/></ListItem>}
-                    {getGame(3) && <ListItem num={4}><img src={getGame(3).listImg}/></ListItem>}
-                    {getGame(4) && <ListItem num={5}><img src={getGame(4).listImg}/></ListItem>}
+                    {getGame(0) && <ListItem num={1} direction={listDirection}><img src={getGame(0).listImg}/></ListItem>}
+                    {getGame(1) && <ListItem num={2} direction={listDirection}><img src={getGame(1).listImg}/></ListItem>}
+                    {getGame(2) && <ListItem num={3} direction={listDirection}><img id='list-item-active' src={getGame(2).listImg}/></ListItem>}
+                    {getGame(3) && <ListItem num={4} direction={listDirection}><img src={getGame(3).listImg}/></ListItem>}
+                    {getGame(4) && <ListItem num={5} direction={listDirection}><img src={getGame(4).listImg}/></ListItem>}
                 </div>
             </div>)
 }
