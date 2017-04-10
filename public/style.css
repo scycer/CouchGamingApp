@@ -50,30 +50,6 @@ body {
 }
 
 
-#list-item-active {
-    position: absolute;
-
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
-    0 15px 12px rgba(0,0,0,0.22), 
-    0px 0px 22px 10px rgb(255, 0, 69);
-
-    animation-name: list-item-active;
-    animation-duration: 500ms;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in;
-
-}
-
-@keyframes list-item-active {
-    0%   {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
-    0 15px 12px rgba(0,0,0,0.22), 
-    0px 0px 22px 10px rgba(255, 0, 69, 1)}
-    100% {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 
-    0 15px 12px rgba(0,0,0,0.22), 
-    0px 0px 22px 10px rgba(255, 0, 69, 0.6)}
-}
-
 
 #video {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);

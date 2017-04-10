@@ -1,32 +1,49 @@
-import React from 'react';
+import React from "react";
+import { ListItem } from "./ListStyles";
 
-import {ListItem} from './ListStyles'
+class List extends React.Component {
+  // ****************************
+  // *  React Inital State
+  // ****************************
+  constructor(props) {
+    super(props);
+  }
 
-const List = ({gameList, activeGame, listDirection}) => {
+  render() {
+    const { gameList, activeGame, listDirection } = this.props;
 
-    const orderedGameList = gameList.map((game, idx) => ({...game, order: idx}))
+    const filteredGames = gameList
+      // Display order - list item appear in right location on UI
+      .map((game, idx) => ({
+        ...game,
+        displayOrder: idx - activeGame + 4
+      }))
+      // //Get 2 games either side of the active game (reduces rendering offscreen)
+      .filter((_, idx) => idx >= activeGame - 3 && idx <= activeGame + 3);
 
-    const filteredGames = 
-        //Get 2 games either side of the active game
-        orderedGameList.filter(game => game.order >= activeGame - 2 && game.order <= activeGame + 2) 
+    const getGame = gameOrder =>
+      filteredGames.find(game => game.displayOrder === gameOrder);
+    return (
+      <div id="listbg">
+        <div id="list">
 
-        // Display order is 0 - 5
-        .map(game => ({...game, displayOrder: game.order - activeGame + 2})) 
-
-    const getGame = (gameOrder) => filteredGames.find(game => game.displayOrder === gameOrder)
-
-    // console.log(isValidgetGame(0))
-
-
-    return  (<div id='listbg'>
-                <div id='list'>
-                    {getGame(0) && <ListItem num={1} direction={listDirection}><img src={getGame(0).listImg}/></ListItem>}
-                    {getGame(1) && <ListItem num={2} direction={listDirection}><img src={getGame(1).listImg}/></ListItem>}
-                    {getGame(2) && <ListItem num={3} direction={listDirection}><img id='list-item-active' src={getGame(2).listImg}/></ListItem>}
-                    {getGame(3) && <ListItem num={4} direction={listDirection}><img src={getGame(3).listImg}/></ListItem>}
-                    {getGame(4) && <ListItem num={5} direction={listDirection}><img src={getGame(4).listImg}/></ListItem>}
-                </div>
-            </div>)
+          {filteredGames.map(game => {
+            return (
+              <ListItem
+                num={game.displayOrder}
+                //The random val ensures the scroll animation is applied each time
+                key={Math.random()}
+                direction={listDirection}
+                active={game.displayOrder === 4}
+              >
+                <img src={game.listImg} />
+              </ListItem>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
 }
 
-export default List
+export default List;
