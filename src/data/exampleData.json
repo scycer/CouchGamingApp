@@ -10,6 +10,7 @@
                 "Co-op"
             ],
             "descipt": "Enter the Gungeon is a bullet hell dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon’s ultimate treasure: the gun that can kill the past.",
+            "players": "2",
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057",
             "listImg": "http://cdn.akamai.steamstatic.com/steam/apps/501590/header.jpg?t=1491429213",
             "bgImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/ss_16e5c40621bfb6bfe2b9c010861850595e180e48.1920x1080.jpg?t=1490875847",
@@ -19,12 +20,13 @@
             "guid": "008886f2-994b-49c8-9ee6-cdab3d856c77",
             "name": "Enter the Gungeon",
             "genres": [
-                "RPG"
+                "FPS"
             ],
             "modes": [
-                "Co-op"
+                "Vs"
             ],
-            "descipt": "Enter the Gungeon is a bullet hell dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon’s ultimate treasure: the gun that can kill the past.",
+            "descipt": "Shit desciption sssss",
+            "players": "2",
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057",
             "listImg": "http://cdn.akamai.steamstatic.com/steam/apps/201790/header.jpg?t=1478726734",
             "bgImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/ss_16e5c40621bfb6bfe2b9c010861850595e180e48.1920x1080.jpg?t=1490875847",
@@ -34,12 +36,14 @@
             "guid": "2fcd3265-1534-4d4a-bc14-9a7ea9003255",
             "name": "Enter the Gungeon",
             "genres": [
-                "RPG"
+                "RPG",
+                "FPS"
             ],
             "modes": [
                 "Co-op"
             ],
             "descipt": "Enter the Gungeon is a bullet hell dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon’s ultimate treasure: the gun that can kill the past.",
+            "players": "2",
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057",
             "listImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/header.jpg?t=1490875847",
             "bgImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/ss_16e5c40621bfb6bfe2b9c010861850595e180e48.1920x1080.jpg?t=1490875847",
@@ -47,17 +51,18 @@
         },
         {
             "guid": "008886f2-994b-49c8-9ee6-cdab3d856c77",
-            "name": "Enter the Gungeon",
+            "name": "RimWorld",
             "genres": [
-                "RPG"
+                "Strategy"
             ],
             "modes": [
-                "Co-op"
+                "VS"
             ],
-            "descipt": "Enter the Gungeon is a bullet hell dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon’s ultimate treasure: the gun that can kill the past.",
-            "video": "http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057",
+            "descipt": "A sci-fi colony sim driven by an intelligent AI storyteller. Inspired by Dwarf Fortress and Firefly. Generates stories by simulating psychology, ecology, gunplay, melee combat, climate, biomes, diplomacy, interpersonal relationships, art, medicine, trade, and more.",
+            "players": "4",
+            "video": "http://cdn.akamai.steamstatic.com/steam/apps/2032054/movie480.webm?t=1464212072",
             "listImg": "http://cdn.akamai.steamstatic.com/steam/apps/294100/header.jpg?t=1484073238",
-            "bgImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/ss_16e5c40621bfb6bfe2b9c010861850595e180e48.1920x1080.jpg?t=1490875847",
+            "bgImg": "http://cdn.akamai.steamstatic.com/steam/apps/294100/ss_8dfed1fd659a608f3556bfccaaf9ef49bf594222.1920x1080.jpg?t=1484073238",
             "fileLoc": "ssss//sss//sss"
         },
         {
@@ -70,6 +75,7 @@
                 "Co-op"
             ],
             "descipt": "Enter the Gungeon is a bullet hell dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon’s ultimate treasure: the gun that can kill the past.",
+            "players": "2",
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057",
             "listImg": "http://cdn.akamai.steamstatic.com/steam/apps/569860/header.jpg?t=1491306923",
             "bgImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/ss_16e5c40621bfb6bfe2b9c010861850595e180e48.1920x1080.jpg?t=1490875847",
@@ -85,6 +91,7 @@
                 "Co-op"
             ],
             "descipt": "Enter the Gungeon is a bullet hell dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon’s ultimate treasure: the gun that can kill the past.",
+            "players": "2",
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057",
             "listImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/header.jpg?t=1490875847",
             "bgImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/ss_16e5c40621bfb6bfe2b9c010861850595e180e48.1920x1080.jpg?t=1490875847",
@@ -100,6 +107,7 @@
                 "Co-op"
             ],
             "descipt": "Enter the Gungeon is a bullet hell dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon’s ultimate treasure: the gun that can kill the past.",
+            "players": "2",
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256661185/movie480.webm?t=1456932057",
             "listImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/header.jpg?t=1490875847",
             "bgImg": "http://cdn.akamai.steamstatic.com/steam/apps/311690/ss_16e5c40621bfb6bfe2b9c010861850595e180e48.1920x1080.jpg?t=1490875847",

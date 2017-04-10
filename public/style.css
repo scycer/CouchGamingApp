@@ -49,35 +49,36 @@ body {
       
 }
 
-
+#videoDiv {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px 0px 0px;
+}
 
 #video {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    width: 1000px;
-    position: relative;
-    left: 172px;
-    top: 40px;
-    /*margin: 50px 50px ;*/
+    width: 854px;
+    height: 480px;
 }
 
 #game-types {
     display: flex;
-    justify-content: space-around; 
+    justify-content: center;
 
     position: relative;    
-    top: 100px;
+    top: 20px;
     width: 100%;
     text-align: center;      
 }
 
 .gameDetail {
-    /*position: absolute;   */
-    
-    /*top: 64px;*/
     text-align: center;
     width: auto;
-    padding: 20px 20px;
+    padding: 10px 20px;
     border-radius: 10px;
+    margin: 10px;
 
     color: white;
     background: dimgrey;
@@ -93,7 +94,7 @@ body {
     font-size: 25px;
     
     position: relative;
-    top: 150px;
+    top: 40px;
     line-height: 30px;
     padding-left: 100px;
     padding-right: 100px;

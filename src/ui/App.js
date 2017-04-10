@@ -19,7 +19,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       activeGame: 2,
-      listDirection: "Down"
+      listDirection: "Down",
+      videoPlaying: true
     };
   }
 
@@ -30,11 +31,17 @@ class App extends React.Component {
         activeGame: prevState.activeGame - 1,
         listDirection: "Up"
       }));
+
     buttonPressed === "Down" &&
       this.state.activeGame < gameList.length - 1 &&
       this.setState(prevState => ({
         activeGame: prevState.activeGame + 1,
         listDirection: "Down"
+      }));
+
+    buttonPressed === "B" &&
+      this.setState(prevState => ({
+        videoPlaying: prevState.videoPlaying ? false : true
       }));
   }
 
@@ -47,8 +54,11 @@ class App extends React.Component {
           activeGame={this.state.activeGame}
           listDirection={this.state.listDirection}
         />
-        <GameDetails />
-        <ActionBar />
+        <GameDetails
+          videoPlaying={this.state.videoPlaying}
+          activeGame={gameList[this.state.activeGame]}
+        />
+        <ActionBar videoPlaying={this.state.videoPlaying} />
 
         {/*
         ****************************
@@ -56,7 +66,11 @@ class App extends React.Component {
         ****************************
         */}
         <div id="bg-img">
-          <img src="bg.jpg" height="1080" width="1920" />
+          <img
+            src={gameList[this.state.activeGame].bgImg}
+            height="1080"
+            width="1920"
+          />
         </div>
 
       </div>
