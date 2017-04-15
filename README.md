@@ -23,5 +23,5 @@ I had tried Steam 'Big Picture Mode' but it lacked any videos and was too generi
 - Make it easy to add new games to the collection
 ----------
 
-[Todo List is located in the Projects section](https://github.com/scycer/CouchGamingApp/projects/1)
+[Todo List is located on Trello](https://trello.com/b/HfMqzzpz/couch-gaming-app)
 
