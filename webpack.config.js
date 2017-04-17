@@ -1,13 +1,15 @@
 const path = require('path')
 
+var CopyWebpackPlugin = require('copy-webpack-plugin')
+
 /***********************
  * Webpack Settings
  **********************/
 module.exports = {
   // JS file to start with
   entry: {
-    entry: './src/renderer.js',
-    main: './src/main.js'
+    renderer: './src/renderer.js'
+    // main: './src/main.js'
   },
 
   // Where to output the bundle
@@ -24,8 +26,18 @@ module.exports = {
     ]
   },
 
+  plugins: [
+    new CopyWebpackPlugin(
+      // Move index.html to dist folder
+      [
+        { from: './src/index.html', to: './' },
+        { from: './src/main.js', to: './main.bundle.js' }
+      ]
+    )
+  ],
+
   // // Build for electron
-  target: 'electron-main',
+  target: 'electron-renderer',
 
   /***********************
    * Dev Server
