@@ -1,7 +1,7 @@
 {
     "games": [
         {
-            "guid": null,
+            "guid": "6AC413C1-B083-4BF3-B726-27B1F8931FD6",
             "genres": [
                 "fps",
                 "rts"
@@ -19,7 +19,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/2030587/movie480.webm?t=1447360016"
         },
         {
-            "guid": null,
+            "guid": "CB928C54-F188-456F-B895-DBC34C8247C8",
             "genres": [
                 "fps",
                 "rts"
@@ -37,7 +37,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256663106/movie480.webm?t=1461085702"
         },
         {
-            "guid": null,
+            "guid": "7B795F90-A920-4ED7-A398-0BBAF05A0C96",
             "genres": [
                 "fps",
                 "rts"
@@ -55,7 +55,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/2031570/movie480.webm?t=1447361027"
         },
         {
-            "guid": null,
+            "guid": "D3B1FE5C-D2A5-4EF5-836E-F79F65E8649E",
             "genres": [
                 "fps",
                 "rts"
@@ -73,7 +73,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/2030701/movie480.webm?t=1447360089"
         },
         {
-            "guid": null,
+            "guid": "9CEDACBA-50D2-4BD3-AEBC-7F2C95E65969",
             "genres": [
                 "fps",
                 "rts"
@@ -91,7 +91,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256658761/movie480.webm?t=1449342495"
         },
         {
-            "guid": null,
+            "guid": "99DDAC5E-0688-4D0F-9C1A-7A6DE2D35141",
             "genres": [
                 "fps",
                 "rts"
@@ -109,7 +109,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256664105/movie480.webm?t=1463070921"
         },
         {
-            "guid": null,
+            "guid": "D039A6AA-7D23-4F09-B15D-B2E2AA0F898A",
             "genres": [
                 "fps",
                 "rts"
@@ -127,7 +127,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/2033997/movie480.webm?t=1463132372"
         },
         {
-            "guid": null,
+            "guid": "9E83B67C-308F-4539-8CD4-DDBB8010B6C9",
             "genres": [
                 "fps",
                 "rts"
@@ -145,7 +145,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/2039920/movie480.webm?t=1447375947"
         },
         {
-            "guid": null,
+            "guid": "FAF344C4-60FE-4936-9E05-D46AEBC3FFA4",
             "genres": [
                 "fps",
                 "rts"
@@ -155,7 +155,7 @@
                 "co-op"
             ],
             "players": 2,
-            "fileLoc": null,
+            "fileLoc": "E:\\Games\\SteamLibrary\\steamapps\\common\\Broforce\\Broforce_beta.exe",
             "bgImg": "http://store.akamai.steamstatic.com/public/images/blank.gif",
             "descipt": "When evil threatens the world, the world calls on Broforce - an under-funded, over-powered paramilitary organization dealing exclusively in excessive force. Brace your loins with up to four players to run ‘n’ gun as dozens of different bros and eliminate the opposing terrorist forces that threaten our way of life.",
             "listImg": "http://cdn.akamai.steamstatic.com/steam/apps/274190/header.jpg?t=1473787758",
@@ -163,7 +163,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256666622/movie480.webm?t=1467896798"
         },
         {
-            "guid": null,
+            "guid": "5C4C79A9-C012-48C4-93EA-B86093054612",
             "genres": [
                 "fps",
                 "rts"
@@ -181,7 +181,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/2034246/movie480.webm?t=1452549796"
         },
         {
-            "guid": null,
+            "guid": "C2351664-BAE0-42C9-B930-E12E11F312F9",
             "genres": [
                 "fps",
                 "rts"
@@ -199,7 +199,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/2033487/movie480.webm?t=1447362756"
         },
         {
-            "guid": null,
+            "guid": "2C77D16B-C97D-416A-8999-7FECB1AE432F",
             "genres": [
                 "fps",
                 "rts"
@@ -217,7 +217,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256659999/movie480.webm?t=1453398312"
         },
         {
-            "guid": null,
+            "guid": "064B206B-63B5-4414-92A9-92B57886BAC2",
             "genres": [
                 "fps",
                 "rts"
@@ -235,7 +235,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256660248/movie480.webm?t=1469075508"
         },
         {
-            "guid": null,
+            "guid": "72DB4D78-6D86-447E-9DBB-8C1DB0E5DC2D",
             "genres": [
                 "fps",
                 "rts"
@@ -253,7 +253,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256657787/movie480.webm?t=1464790775"
         },
         {
-            "guid": null,
+            "guid": "12897D3D-63A7-41E3-8A61-3A8A2BCF0C44",
             "genres": [
                 "fps",
                 "rts"
@@ -271,7 +271,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256661425/movie480.webm?t=1457112221"
         },
         {
-            "guid": null,
+            "guid": "C2134165-0EBD-4A06-A24A-C064B7F1A56B",
             "genres": [
                 "fps",
                 "rts"
@@ -289,7 +289,7 @@
             "video": "http://cdn.akamai.steamstatic.com/steam/apps/256657122/movie480.webm?t=1449504283"
         },
         {
-            "guid": null,
+            "guid": "BF1E8377-DEF0-49D5-8E8E-8771617D7577",
             "genres": [
                 "fps",
                 "rts"
