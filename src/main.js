@@ -1,4 +1,5 @@
 const electron = require('electron')
+const { ipcMain, shell } = require('electron')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -34,6 +35,18 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  mainWindow.on('blur', () =>
+    mainWindow.webContents.send('asynchronous-message', {
+      action: 'windowFocus',
+      payload: false
+    }))
+
+  mainWindow.on('focus', () =>
+    mainWindow.webContents.send('asynchronous-message', {
+      action: 'windowFocus',
+      payload: true
+    }))
 }
 
 // This method will be called when Electron has finished
@@ -59,3 +72,17 @@ app.on('activate', function () {
 })
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+const launchGame = fileLoc =>
+  fileLoc && shell.openExternal(fileLoc, { activate: true })
+
+// Handle message from renderer
+ipcMain.on('asynchronous-message', (event, arg) => {
+  const { action, payload } = arg
+
+  {
+    launchGame: launchGame(payload) && console.log('Launching Game...')
+  }
+  [action]
+  event.sender.send('asynchronous-reply', 'MAIN: Received Message')
+})

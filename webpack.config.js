@@ -50,6 +50,6 @@ module.exports = {
     overlay: true,
 
     // nothing is shown in CLI
-    quiet: true
+    quiet: false
   }
 }
