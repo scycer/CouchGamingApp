@@ -1,34 +1,43 @@
 import React from 'react'
 
 const GameDetails = ({ activeGame, videoPlaying }) => {
-  const { name, genres, players, modes, descipt, video, listImg } = activeGame
-  const concatStrArr = arr => arr.reduce((a, b) => `${a} & ${b}`)
+  const gameDetailsLayout = () => {
+    const { genres, players, modes, descipt, video, bgImg } = activeGame
+    const concatStrArr = arr => arr.reduce((a, b) => `${a} & ${b}`)
 
-  const genresStr = concatStrArr(genres)
-  const modesStr = concatStrArr(modes)
+    const genresStr = concatStrArr(genres)
+    const modesStr = concatStrArr(modes)
 
-  const isVideoPlaying = videoPlaying
+    const isVideoPlaying = videoPlaying
 
-  return (
-    <div id='details'>
-      <div id='videoDiv'>
-        {/* Random used to force a reload of the video (only source changes) */}
-        <video id='video' key={Math.random()} autoPlay={isVideoPlaying}>
-          <source src={video} type='video/webm' />
-        </video>
+    return (
+      <div id='details'>
+        <div id='videoDiv'>
+          {/* Random used to force a reload of the video (only source changes) */}
+          {video
+            ? <video id='video' key={Math.random()} autoPlay={isVideoPlaying}>
+              <source src={video} type='video/webm' />
+            </video>
+            : <img id='video' src={bgImg} />}
+
+        </div>
+
+        <div id='game-types'>
+          <div className='gameDetail'>{players} Players</div>
+          <div className='gameDetail'> {genresStr} </div>
+          <div className='gameDetail'> {modesStr} </div>
+        </div>
+
+        <div id='game-descript'>
+          {descipt}
+        </div>
       </div>
+    )
+  }
 
-      <div id='game-types'>
-        <div className='gameDetail'>{players} Players</div>
-        <div className='gameDetail'> {genresStr} </div>
-        <div className='gameDetail'> {modesStr} </div>
-      </div>
+  const noGames = <div id='no-games'><h1> No Games </h1></div>
 
-      <div id='game-descript'>
-        {descipt}
-      </div>
-    </div>
-  )
+  return activeGame ? gameDetailsLayout() : noGames
 }
 
 export default GameDetails

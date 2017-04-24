@@ -1,20 +1,21 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components'
 
-const topValues = itemNum => 432.5 + (itemNum - 4) * 273 + "px";
+const topValues = itemNum => 432.5 + (itemNum - 4) * 273 + 'px'
 
 const ListItemMove = (itemNum, direction) => keyframes`
   from {
-    top: ${direction === "Up" ? topValues(itemNum - 1) : topValues(itemNum + 1)}
+    top: ${direction === 'Up' ? topValues(itemNum - 1) : topValues(itemNum + 1)}
   }
 
   to {
     top: ${topValues(itemNum)}
   }
-`;
+`
 
 export const ListItem = styled.div`
     position: absolute;
     top: ${({ num }) => topValues(num)};
+    height: 215px;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     
     animation:
@@ -23,7 +24,7 @@ export const ListItem = styled.div`
 
       // Active Item glow
       ${({ active }) => active && ActiveItem} 500ms infinite alternate ease-in;
-`;
+`
 
 const ActiveItem = keyframes`
     0%   {
@@ -39,4 +40,4 @@ const ActiveItem = keyframes`
         0 15px 12px rgba(0,0,0,0.22),
         0px 0px 22px 10px rgba(255, 0, 69, 0.6)
     }
-`;
+`

@@ -14,6 +14,9 @@
   "keywords": [
     "gaming",
     "local-multiplayer",
+    "couch-gaming",
+    "local-co-op",
+    "local",
     "electron",
     "react"
   ],
@@ -39,6 +42,10 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "copy-webpack-plugin": "^4.0.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-prettier": "^2.0.1",
+    "eslint-plugin-react": "^6.10.3",
+    "prettier": "^1.2.2",
     "webpack": "^2.3.3"
   }
 }

@@ -17,26 +17,43 @@
       overflow: hidden;
     }
     
-    #bg-img {
+    #bg {
+      background: rgba(69, 90, 100, 0.9);
       position: absolute;
       left: 0px;
       top: 0px;
       z-index: -1;
+      height: 1080px;
+      width: 1920px;
+    }
+    
+    #bg-img {
+      opacity: 0.1;
     }
     
     #listbg {
-      background: rgba(69, 90, 100, 0.9);
       width: 576px;
       height: 1080px;
     }
     
     #details {
-      background: rgba(69, 90, 100, 0.9);
       width: 1344px;
       height: 1080px;
       position: absolute;
       left: 576px;
       top: 0px;
+    }
+    
+    #no-games {
+      width: 1920px;
+      height: 950px;
+      color: white;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     
     #bar {

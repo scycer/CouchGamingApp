@@ -1,5 +1,5 @@
 const electron = require('electron')
-const { ipcMain, shell } = require('electron')
+const { ipcMain, shell, webFrame } = require('electron')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -8,13 +8,20 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Keep a global reference of the window object
+// If you don't, the window will be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 1920, height: 1080 })
+  mainWindow = new BrowserWindow({
+    width: 1920,
+    height: 1080,
+    // Fullscreen settings
+    fullscreen: true,
+    thickFrame: true,
+    frame: false
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL(
@@ -73,8 +80,8 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-const launchGame = fileLoc =>
-  fileLoc && shell.openExternal(fileLoc, { activate: true })
+const launchGame = fileLoc => fileLoc && shell.openItem(fileLoc)
+// fileLoc && shell.openExternal(fileLoc, { activate: true })
 
 // Handle message from renderer
 ipcMain.on('asynchronous-message', (event, arg) => {

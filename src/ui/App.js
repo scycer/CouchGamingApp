@@ -1,16 +1,18 @@
 import React from 'react'
-import Gamepad from './gamepad.js'
 
 import List from './components/List'
 import GameDetails from './components/GameDetails'
 import ActionBar from './components/ActionBar'
 import Overlay from './components/Overlay'
+import Modal from './components/Modal'
 
 import GamePadWrapper from './GamePadWrapper'
 
 import data from '../data/exampleData'
 
 const gameList = data.games
+  // Alphabetical sort
+  .sort((gameA, gameB) => gameA.name > gameB.name ? 1 : -1)
 
 class App extends React.Component {
   // ****************************
@@ -19,11 +21,18 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      activeGame: 2,
+      activeGame: 0,
       listDirection: 'Down',
       videoPlaying: true,
       loadingGame: false,
-      windowFocus: true
+      windowFocus: true,
+      filterModal: false,
+      filter: {
+        selected: 'minPlayers',
+        minPlayers: 0,
+        mode: 'all',
+        genre: 'all'
+      }
     }
   }
 
@@ -37,14 +46,22 @@ class App extends React.Component {
 
   setWindowFocusState (isFocused) {
     console.log('Window focus: ' + isFocused)
-    this.setState({ windowFocus: isFocused })
+    this.setState({ windowFocus: isFocused, videoPlaying: isFocused })
   }
 
   handleGamepadInput (buttonPressed) {
-    this.updateStateFromGamepad(buttonPressed)
+    // Only handle input if the screen is active and not loading a game
+    !this.state.loadingGame &&
+      this.state.windowFocus &&
+      this.updateStateFromGamepad(buttonPressed)
   }
 
   updateStateFromGamepad (buttonPressed) {
+    buttonPressed === 'Y' &&
+      this.setState(prevState => ({
+        filterModal: !prevState.filterModal
+      }))
+
     // Scrolling
     buttonPressed === 'Up' &&
       this.state.activeGame > 0 &&
@@ -80,6 +97,8 @@ class App extends React.Component {
         payload: gameList[this.state.activeGame].fileLoc
       })
     }
+
+    setTimeout(() => this.setLoadingGame(false), 30000)
   }
 
   setLoadingGame (isGameLoading) {
@@ -90,36 +109,98 @@ class App extends React.Component {
   }
 
   render () {
+    const {
+      filter,
+      windowFocus,
+      loadingGame,
+      activeGame,
+      videoPlaying,
+      listDirection,
+      filterModal
+    } = this.state
+
+    const filteredGamesList = gameList.filter(game => {
+      // Check if it has min players
+      return game.players >= filter.minPlayers &&
+        // Check if it meets the game mode
+        (filter.mode === 'all' ? true : game.modes.includes(filter.mode)) &&
+        // Check if it meets the genres
+        (filter.genre === 'all' ? true : game.genres.includes(filter.genre))
+    })
+
     return (
       <div>
         <GamePadWrapper callback={x => this.handleGamepadInput(x)} />
 
-        {(this.state.loadingGame || !this.state.windowFocus) &&
+        {/*
+        ****************************
+        *  Loading / Focus Overlay
+        ****************************
+        */}
+        {(loadingGame || !windowFocus) &&
           <Overlay
-            loadingGame={this.state.loadingGame}
-            windowFocus={this.state.windowFocus}
-            activeGame={gameList[this.state.activeGame]}
+            loadingGame={loadingGame}
+            windowFocus={windowFocus}
+            activeGame={filteredGamesList[activeGame]}
           />}
 
+        {/*
+        ****************************
+        *  Filter Modal
+        ****************************
+        */}
+        {filterModal &&
+          <Modal
+            selectedEl={this.state.filter.selected}
+            minPlayers={this.state.filter.minPlayers}
+            genre={this.state.filter.genre}
+            mode={this.state.filter.mode}
+            gameCount={gameList.length}
+            results={filteredGamesList.length}
+          />}
+
+        {/*
+        ****************************
+        *  List of Games
+        ****************************
+        */}
         <List
-          gameList={gameList}
-          activeGame={this.state.activeGame}
-          listDirection={this.state.listDirection}
+          gameList={filteredGamesList}
+          activeGame={activeGame}
+          listDirection={listDirection}
         />
+        }
+
+        {/*
+        ****************************
+        *  Game Details
+        ****************************
+        */}
         <GameDetails
-          videoPlaying={this.state.videoPlaying}
-          activeGame={gameList[this.state.activeGame]}
+          videoPlaying={videoPlaying}
+          activeGame={filteredGamesList[activeGame]}
         />
-        <ActionBar videoPlaying={this.state.videoPlaying} />
+
+        {/*
+        ****************************
+        *  Action Bar
+        ****************************
+        */}
+        <ActionBar videoPlaying={videoPlaying} />
 
         {/*
         ****************************
         *  Background Image
         ****************************
         */}
-        <div id='bg-img'>
+        <div id='bg'>
           <img
-            src={gameList[this.state.activeGame].bgImg}
+            id='bg-img'
+            opacity='0.5'
+            src={
+              filteredGamesList[activeGame] &&
+                filteredGamesList[activeGame].bgImg
+            }
             height='1080'
             width='1920'
           />
