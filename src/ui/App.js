@@ -13,6 +13,9 @@ const aToZSort = (a, b) => a > b ? 1 : -1
 
 const gameList = data.games
 
+// ****************************
+// *  Filter functions
+// ****************************
 const filterOptions = [2, 3, 4, 5]
 
 // nextEl :: Array -> Int -> Int
@@ -30,10 +33,16 @@ const filterGamesList = minPlayers =>
     )
     .sort(aToZSort)
 
+// ****************************
+// *  Random functions
+// ****************************
+
+const randomIntZeroToX = max => Math.round(Math.random() * max)
+
+// ****************************
+// *  React App
+// ****************************
 class App extends React.Component {
-  // ****************************
-  // *  React Inital State
-  // ****************************
   constructor (props) {
     super(props)
     this.state = {
@@ -65,37 +74,53 @@ class App extends React.Component {
   }
 
   updateStateFromGamepad (buttonPressed) {
-    // console.log(nextEl(filterOptions)(0))
-    // Filter Button
-    buttonPressed === 'Y' &&
+    const scrollList = direction => {
+      const incDecIdx = direction === 'Up' ? -1 : 1
+
+      this.setState(prevState => ({
+        activeGameId: prevState.activeGameId + incDecIdx,
+        listDirection: direction
+      }))
+    }
+
+    const isEndOfList = this.state.activeGameId >=
+      filterGamesList(this.state.minPlayers).length - 1
+
+    const isStartOfList = this.state.activeGameId <= 0
+
+    const playPauseVideo = () =>
+      this.setState(prevState => ({
+        videoPlaying: !prevState.videoPlaying
+      }))
+
+    const filterOnPlayers = () =>
       this.setState(prevState => ({
         minPlayers: getNextFilter(prevState.minPlayers),
         activeGameId: 0
       }))
 
-    // Scrolling List
-    buttonPressed === 'Up' &&
-      this.state.activeGameId > 0 &&
-      this.setState(prevState => ({
-        activeGameId: prevState.activeGameId - 1,
-        listDirection: 'Up'
-      }))
+    const randomGame = () =>
+      this.setState({
+        activeGameId: randomIntZeroToX(
+          filterGamesList(this.state.minPlayers).length
+        )
+      })
 
-    buttonPressed === 'Down' &&
-      this.state.activeGameId <
-        filterGamesList(this.state.minPlayers).length - 1 &&
-      this.setState(prevState => ({
-        activeGameId: prevState.activeGameId + 1,
-        listDirection: 'Down'
-      }))
+    // Scrolling List
+    buttonPressed === 'Up' && !isStartOfList && scrollList('Up')
+    buttonPressed === 'Down' && !isEndOfList && scrollList('Down')
 
     // Play/Pause video
-    buttonPressed === 'B' &&
-      this.setState(prevState => ({
-        videoPlaying: !prevState.videoPlaying
-      }))
+    buttonPressed === 'B' && playPauseVideo()
+
     // Play Game
     buttonPressed === 'A' && this.launchGame()
+
+    // Filter Button
+    buttonPressed === 'Y' && filterOnPlayers()
+
+    // Random Button
+    buttonPressed === 'X' && randomGame()
   }
 
   launchGame () {
@@ -110,6 +135,7 @@ class App extends React.Component {
       })
     }
 
+    // Stop 'Game Loading' after 30 seconds
     setTimeout(() => this.setLoadingGame(false), 30000)
   }
 

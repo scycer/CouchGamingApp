@@ -1,40 +1,23 @@
 import React from 'react'
 
-const GameDetails = ({ videoPlaying, minPlayers }) => {
+const ActionBar = ({ videoPlaying, minPlayers }) => {
+  const actionButton = (button, label) => (
+    <div className='btn-sec'>
+      <div className={'round-btn ' + button}>
+        <div className='round-btn-text'>{button.toUpperCase()}</div>
+      </div>
+      <div className='btn-label'>{label}</div>
+    </div>
+  )
+
   return (
     <div id='bar'>
-
-      <div className='btn-sec'>
-        <div className='round-btn a'>
-          <div className='round-btn-text'>A</div>
-        </div>
-        <div className='btn-label'>Play</div>
-      </div>
-
-      <div className='btn-sec'>
-        <div className='round-btn b'>
-          <div className='round-btn-text'>B</div>
-        </div>
-        <div className='btn-label'>
-          {videoPlaying ? 'Pause Video' : 'Play Video'}
-        </div>
-      </div>
-
-      <div className='btn-sec'>
-        <div className='round-btn x'>
-          <div className='round-btn-text'>X</div>
-        </div>
-        <div className='btn-label'>Random</div>
-      </div>
-
-      <div className='btn-sec'>
-        <div className='round-btn y'>
-          <div className='round-btn-text'>Y</div>
-        </div>
-        <div className='btn-label'>{minPlayers} players</div>
-      </div>
+      {actionButton('a', 'Play')}
+      {actionButton('b', videoPlaying ? 'Pause Video' : 'Play Video')}
+      {actionButton('x', 'Random')}
+      {actionButton('y', `${minPlayers} players`)}
     </div>
   )
 }
 
-export default GameDetails
+export default ActionBar
