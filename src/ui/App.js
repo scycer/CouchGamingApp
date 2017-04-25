@@ -4,15 +4,31 @@ import List from './components/List'
 import GameDetails from './components/GameDetails'
 import ActionBar from './components/ActionBar'
 import Overlay from './components/Overlay'
-import Modal from './components/Modal'
 
 import GamePadWrapper from './GamePadWrapper'
 
 import data from '../data/exampleData'
 
+const aToZSort = (a, b) => a > b ? 1 : -1
+
 const gameList = data.games
-  // Alphabetical sort
-  .sort((gameA, gameB) => gameA.name > gameB.name ? 1 : -1)
+
+const filterOptions = [2, 3, 4, 5]
+
+// nextEl :: Array -> Int -> Int
+const nextEl = arr => idx => arr.length === idx + 1 ? 0 : idx + 1
+
+// getNextFilter :: Int -> Int
+const getNextFilter = nextEl(filterOptions)
+
+// filterGamesList :: Int -> [Objects]
+const filterGamesList = minPlayers =>
+  gameList
+    .filter(
+      // Show game that have the min players
+      game => game.players >= filterOptions[minPlayers]
+    )
+    .sort(aToZSort)
 
 class App extends React.Component {
   // ****************************
@@ -21,23 +37,16 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      activeGame: 0,
+      activeGameId: 0,
       listDirection: 'Down',
-      videoPlaying: true,
+      videoPlaying: false,
       loadingGame: false,
       windowFocus: true,
-      filterModal: false,
-      filter: {
-        selected: 'minPlayers',
-        minPlayers: 0,
-        mode: 'all',
-        genre: 'all'
-      }
+      minPlayers: 0
     }
   }
 
   handleExternalInput ({ action, payload }) {
-    console.log('Input from Main:', action, payload)
     {
       windowFocus: this.setWindowFocusState(payload)
     }
@@ -45,7 +54,6 @@ class App extends React.Component {
   }
 
   setWindowFocusState (isFocused) {
-    console.log('Window focus: ' + isFocused)
     this.setState({ windowFocus: isFocused, videoPlaying: isFocused })
   }
 
@@ -57,23 +65,27 @@ class App extends React.Component {
   }
 
   updateStateFromGamepad (buttonPressed) {
+    // console.log(nextEl(filterOptions)(0))
+    // Filter Button
     buttonPressed === 'Y' &&
       this.setState(prevState => ({
-        filterModal: !prevState.filterModal
+        minPlayers: getNextFilter(prevState.minPlayers),
+        activeGameId: 0
       }))
 
-    // Scrolling
+    // Scrolling List
     buttonPressed === 'Up' &&
-      this.state.activeGame > 0 &&
+      this.state.activeGameId > 0 &&
       this.setState(prevState => ({
-        activeGame: prevState.activeGame - 1,
+        activeGameId: prevState.activeGameId - 1,
         listDirection: 'Up'
       }))
 
     buttonPressed === 'Down' &&
-      this.state.activeGame < gameList.length - 1 &&
+      this.state.activeGameId <
+        filterGamesList(this.state.minPlayers).length - 1 &&
       this.setState(prevState => ({
-        activeGame: prevState.activeGame + 1,
+        activeGameId: prevState.activeGameId + 1,
         listDirection: 'Down'
       }))
 
@@ -94,7 +106,7 @@ class App extends React.Component {
       // Call main to launch game
       this.props.passActionToMain({
         action: 'launchGame',
-        payload: gameList[this.state.activeGame].fileLoc
+        payload: gameList[this.state.activeGameId].fileLoc
       })
     }
 
@@ -110,23 +122,16 @@ class App extends React.Component {
 
   render () {
     const {
-      filter,
       windowFocus,
       loadingGame,
-      activeGame,
+      activeGameId,
       videoPlaying,
       listDirection,
-      filterModal
+      minPlayers
     } = this.state
 
-    const filteredGamesList = gameList.filter(game => {
-      // Check if it has min players
-      return game.players >= filter.minPlayers &&
-        // Check if it meets the game mode
-        (filter.mode === 'all' ? true : game.modes.includes(filter.mode)) &&
-        // Check if it meets the genres
-        (filter.genre === 'all' ? true : game.genres.includes(filter.genre))
-    })
+    const filteredGamesList = filterGamesList(minPlayers)
+    const activeGame = filteredGamesList[activeGameId]
 
     return (
       <div>
@@ -141,23 +146,10 @@ class App extends React.Component {
           <Overlay
             loadingGame={loadingGame}
             windowFocus={windowFocus}
-            activeGame={filteredGamesList[activeGame]}
+            activeGame={activeGame}
           />}
 
         {/*
-        ****************************
-        *  Filter Modal
-        ****************************
-        */}
-        {filterModal &&
-          <Modal
-            selectedEl={this.state.filter.selected}
-            minPlayers={this.state.filter.minPlayers}
-            genre={this.state.filter.genre}
-            mode={this.state.filter.mode}
-            gameCount={gameList.length}
-            results={filteredGamesList.length}
-          />}
 
         {/*
         ****************************
@@ -166,7 +158,7 @@ class App extends React.Component {
         */}
         <List
           gameList={filteredGamesList}
-          activeGame={activeGame}
+          activeGameId={activeGameId}
           listDirection={listDirection}
         />
         }
@@ -176,17 +168,17 @@ class App extends React.Component {
         *  Game Details
         ****************************
         */}
-        <GameDetails
-          videoPlaying={videoPlaying}
-          activeGame={filteredGamesList[activeGame]}
-        />
+        <GameDetails videoPlaying={videoPlaying} activeGame={activeGame} />
 
         {/*
         ****************************
         *  Action Bar
         ****************************
         */}
-        <ActionBar videoPlaying={videoPlaying} />
+        <ActionBar
+          videoPlaying={videoPlaying}
+          minPlayers={filterOptions[minPlayers]}
+        />
 
         {/*
         ****************************
@@ -197,10 +189,7 @@ class App extends React.Component {
           <img
             id='bg-img'
             opacity='0.5'
-            src={
-              filteredGamesList[activeGame] &&
-                filteredGamesList[activeGame].bgImg
-            }
+            src={activeGame && activeGame.bgImg}
             height='1080'
             width='1920'
           />
@@ -210,5 +199,4 @@ class App extends React.Component {
     )
   }
 }
-
 export default App

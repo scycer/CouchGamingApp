@@ -47,7 +47,7 @@ module.exports = {
     'brace-style': 'error',
     'callback-return': 'error',
     camelcase: 'error',
-    'capitalized-comments': ['error', 'always'],
+    // 'capitalized-comments': ['error', 'always'],
     'class-methods-use-this': 'error',
     'comma-dangle': 'error',
     'comma-spacing': [
@@ -107,7 +107,7 @@ module.exports = {
     'no-bitwise': 'error',
     'no-caller': 'error',
     'no-catch-shadow': 'error',
-    'no-confusing-arrow': 'error',
+    // 'no-confusing-arrow': 'error',
     'no-continue': 'error',
     'no-div-regex': 'error',
     'no-duplicate-imports': 'error',
