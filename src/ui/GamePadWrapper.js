@@ -1,54 +1,46 @@
-import React from 'react';
-import Gamepad from './gamepad.js';
+import React from 'react'
+import Gamepad from './gamepad.js'
 
 class GamePadWrapper extends React.Component {
   // ****************************
   // *  React Inital State
   // ****************************
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
   }
 
   // Stops the requestAnimationFrame and react re-render from conflicting
-  shouldComponentUpdate() {
-    return false;
+  shouldComponentUpdate () {
+    return false
   }
 
-  render() {
-    const callback = this.props.callback;
-    const gamepad = new Gamepad();
+  render () {
+    const callback = this.props.callback
+    const gamepad = new Gamepad()
 
     gamepad.on('press', 'button_1', e => {
-      callback('A');
-    });
+      callback('A')
+    })
     gamepad.on('press', 'button_2', e => {
-      callback('B');
-    });
+      callback('B')
+    })
     gamepad.on('press', 'button_3', e => {
-      callback('X');
-    });
+      callback('X')
+    })
     gamepad.on('press', 'button_4', e => {
-      callback('Y');
-    });
+      callback('Y')
+    })
     gamepad.on('press', 'stick_axis_left', e => {
-      const xAxis = e.value[0];
-      const yAxis = e.value[1];
-      xAxis > 0.3 && callback('Right');
-      xAxis < -0.3 && callback('Left');
-      yAxis < -0.3 && callback('Up');
-      yAxis > 0.3 && callback('Down');
-    });
+      const [xAxis, yAxis] = e.value
 
-    return <div />;
+      xAxis > 0.3 && callback('Right')
+      xAxis < -0.3 && callback('Left')
+      yAxis < -0.3 && callback('Up')
+      yAxis > 0.3 && callback('Down')
+    })
+
+    return <div />
   }
 }
 
-const matrix = [
-  0, 0,
-  0, 0]
-
-const test = (sssssssssssssssssx, sssssssssssssssssy, sssssssssssssffffffsz) => {
-
-}
-
-export default GamePadWrapper;
+export default GamePadWrapper

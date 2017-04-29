@@ -5,8 +5,6 @@ import GameDetails from './components/GameDetails'
 import ActionBar from './components/ActionBar'
 import Overlay from './components/Overlay'
 
-import GamePadWrapper from './GamePadWrapper'
-
 import data from '../data/exampleData'
 
 const aToZSort = (a, b) => a > b ? 1 : -1
@@ -56,10 +54,8 @@ class App extends React.Component {
   }
 
   handleExternalInput ({ action, payload }) {
-    {
-      windowFocus: this.setWindowFocusState(payload)
-    }
-    [action]
+    action === 'windowFocus' && this.setWindowFocusState(payload)
+    action === 'gamepadInput' && this.handleGamepadInput(payload)
   }
 
   setWindowFocusState (isFocused) {
@@ -161,7 +157,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <GamePadWrapper callback={x => this.handleGamepadInput(x)} />
 
         {/*
         ****************************

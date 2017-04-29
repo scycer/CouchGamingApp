@@ -11,11 +11,12 @@ const GameDetails = ({ activeGame, videoPlaying }) => {
     return (
       <div id='details'>
         <div id='videoDiv'>
-
           {video
             ? <video
               id='video'
-              key={Math.random()} // Random used to force a reload of the video (only source changes)
+                // Math.Random used to force a reload of the video
+                // (only source changes and doesn't reload)
+              key={Math.random()}
               autoPlay={videoPlaying}
               src={video}
               />
