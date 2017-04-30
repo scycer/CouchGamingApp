@@ -11,6 +11,9 @@ const GameDetails = ({ activeGame, videoPlaying }) => {
     return (
       <div id='details'>
         <div id='videoDiv'>
+
+          {!videoPlaying && <div id='pauseOverlay'>▌▌</div>}
+
           {video
             ? <video
               id='video'

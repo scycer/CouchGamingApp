@@ -98,7 +98,7 @@ class App extends React.Component {
     const randomGame = () =>
       this.setState({
         activeGameId: randomIntZeroToX(
-          filterGamesList(this.state.minPlayers).length
+          filterGamesList(this.state.minPlayers).length - 1
         )
       })
 
