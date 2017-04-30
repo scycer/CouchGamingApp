@@ -14,7 +14,7 @@ module.exports = {
 
   // Where to output the bundle
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist/resources/app'),
     filename: '[name].bundle.js'
   },
 
